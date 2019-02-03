@@ -26,5 +26,10 @@ namespace HamroDokan.Controllers
 
             return View();
         }
+
+        public ActionResult carousel()
+        {
+            return View();
+        }
     }
 }

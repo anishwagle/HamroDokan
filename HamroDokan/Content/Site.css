@@ -24,6 +24,6 @@ textarea {
 }
 
 .image {
-    width : 10%;
+    max-width : 500px;
     height : 10%;
 }

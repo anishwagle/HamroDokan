@@ -7,7 +7,7 @@
 
 
 <p>@ViewBag.MyString</p>
-@*
+
 <table class="table">
     <tr>
         <th>
@@ -30,27 +30,32 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producer.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ItemArtUrl)
-        </td>
+    @foreach (var item in Model)
+    {
+        if (item.Keyword1 == ViewBag.MyString)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producer.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ItemArtUrl)
+                </td>
 
 
-    </tr>
-}
+            </tr>
 
-</table>
-*@
+        }
+    }
+
+    </table>

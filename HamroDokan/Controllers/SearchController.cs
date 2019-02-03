@@ -55,8 +55,8 @@ namespace HamroDokan.Controllers
                             errors = process.StandardError.ReadToEnd();
                             results = process.StandardOutput.ReadToEnd();
                         }
-                        // xyz=results;
-                        xyz = errors;
+                         xyz=results;
+                        //xyz = errors;
 
                     }
 
