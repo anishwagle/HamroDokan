@@ -9,7 +9,7 @@ namespace HamroDokan.Models
 {
     public class ShoppingCart
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        
         ShoppingStoreEntities storeDB = new ShoppingStoreEntities();
         string ShoppingCartId { get; set; }
         public const string CartSessionKey = "CartId";
@@ -26,6 +26,7 @@ namespace HamroDokan.Models
         }
         public void AddToCart(Item item)
         {
+            
 
             var cartItem = storeDB.Carts.SingleOrDefault(
                 c => c.CartId == ShoppingCartId
@@ -48,6 +49,7 @@ namespace HamroDokan.Models
 
                 cartItem.Count++;
             }
+
 
             storeDB.SaveChanges();
         }
