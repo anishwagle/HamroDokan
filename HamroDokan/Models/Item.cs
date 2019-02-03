@@ -24,7 +24,11 @@ namespace HamroDokan.Models
         public decimal Price { get; set; }
         [DisplayName("ImagePath")]
         public string ItemArtUrl { get; set; }
-        public List<string> Keywords { get; set; }
+        public string Keyword2 { get; set; }
+        public string Keyword3 { get; set; }
+        public string Keyword4 { get; set; }
+        public string Keyword5 { get; set; }
+        public string Keyword1 { get; set; }
         public virtual Category Category { get; set; }
         public virtual Producer Producer { get; set; }
     }
