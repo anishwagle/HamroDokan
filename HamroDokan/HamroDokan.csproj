@@ -230,6 +230,10 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\ImageClassificationWithRandomForest\Classifier.py" />
+    <Content Include="Content\ImageClassificationWithRandomForest\cropper.py" />
+    <Content Include="Content\ImageClassificationWithRandomForest\main.py" />
+    <Content Include="Content\ImageClassificationWithRandomForest\train11.jpg" />
     <Content Include="Content\Images\Mobiles\train10.jpg" />
     <Content Include="Content\Images\Mobiles\train11.jpg" />
     <Content Include="Content\Images\Mobiles\train110.jpg" />
@@ -296,6 +300,35 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\config" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\description" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\FETCH_HEAD" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\HEAD" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\applypatch-msg.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\commit-msg.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\fsmonitor-watchman.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\post-update.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\pre-applypatch.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\pre-commit.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\pre-push.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\pre-rebase.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\pre-receive.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\prepare-commit-msg.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\hooks\update.sample" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\index" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\info\exclude" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\logs\HEAD" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\logs\refs\heads\master" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\logs\refs\remotes\origin\HEAD" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\objects\pack\pack-51fa974980cebf69fa1fb90c959bf16bc80967a6.idx" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\objects\pack\pack-51fa974980cebf69fa1fb90c959bf16bc80967a6.pack" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\packed-refs" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\refs\heads\master" />
+    <Content Include="Content\ImageClassificationWithRandomForest\.git\refs\remotes\origin\HEAD" />
+    <Content Include="Content\ImageClassificationWithRandomForest\Random_Tree.pkl" />
+    <Content Include="Content\ImageClassificationWithRandomForest\__pycache__\Classifier.cpython-37.pyc" />
+    <Content Include="Content\ImageClassificationWithRandomForest\__pycache__\cropper.cpython-36.pyc" />
+    <Content Include="Content\ImageClassificationWithRandomForest\__pycache__\cropper.cpython-37.pyc" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -352,9 +385,12 @@
     <Content Include="Views\ShoppingCart\CartSummary.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Search\Index.cshtml" />
+    <Content Include="Views\Search\Image.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ImageClassificationWithRandomForest\.git\objects\info\" />
+    <Folder Include="Content\ImageClassificationWithRandomForest\.git\refs\tags\" />
     <Folder Include="Content\Images\Unknown\" />
   </ItemGroup>
   <ItemGroup>

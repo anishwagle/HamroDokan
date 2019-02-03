@@ -5,12 +5,10 @@
 {
 
     @Html.TextBox("searching")<input type="submit" value="search" />
-
     
-
 }
 
-@using (Html.BeginForm("Index", "search", FormMethod.Post, new { enctyp = "multipart/form-data" }))
+@using (Html.BeginForm("Image", "search", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" name="file" value="Browse" />
     <input type="submit" value="upload" />
