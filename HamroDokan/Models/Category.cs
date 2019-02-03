@@ -5,7 +5,7 @@ using System.Web;
 
 namespace HamroDokan.Models
 {
-    public partial class Category
+    public class Category
     {
         public int CategoryId { get; set; }
         public string Name { get; set; }

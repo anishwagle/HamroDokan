@@ -10,26 +10,31 @@ namespace HamroDokan.Controllers
 {
     public class StoreController : Controller
     {
+        ShoppingStoreEntities storeDB = new ShoppingStoreEntities();
         // GET: Store
         public ActionResult Index()
         {
-            var category = new List<Category>
-            {
-                new Category{Name="Mobile"},
-                new Category{Name="Pant"},
-                new Category{Name="T-shirt"},
-            };
-            return View(category);
+            var categories = storeDB.Categories.ToList();
+
+            return View(categories);
+        }
+        [ChildActionOnly]
+        public ActionResult CategoryMenu()
+        {
+            var categories = storeDB.Categories.ToList();
+            return PartialView(categories);
+
         }
         public ActionResult Browse(string category)
         {
-            var categoryModel = new Category { Name = category };
+            var categoryModel = storeDB.Categories.Include("Items")
+                .Single(c => c.Name == category);
             return View(categoryModel);
         }
         public ActionResult Details(int id)
         {
-            var iteam = new Item { Title = "Item" + id };
-            return View(iteam);
+            var Item = storeDB.Items.Find(id);
+            return View(Item);
         }
     }
 }
