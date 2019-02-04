@@ -15,32 +15,35 @@ namespace HamroDokan.Controllers
     public class SearchController : Controller
     {
         ShoppingStoreEntities storeDB = new ShoppingStoreEntities();
-        public string xyz;
+ 
         // GET: Search
-        public ActionResult Index(string searching)
+        public ActionResult Index()
         {
-
-
-            return View(storeDB.Items.Where(x => x.Keyword1.Contains(searching)||searching==null).ToList());
+            return View();
         }
         [HttpPost]
-        public ActionResult Image(HttpPostedFileBase file)
+        public ActionResult Text(string searching)
         {
-            
+            ViewBag.MyString = searching;
+            return View(storeDB.Items.Where(x => x.Keyword1.Contains(searching) || searching == null).ToList());
+        }
+        [HttpPost]
+        public ActionResult Image(HttpPostedFileBase file,string result="")
+        {
+           
             
             if (file!=null)
             {
-                if(file.ContentLength>0)
+                if (file.ContentLength > 0)
                 {
-                    if (Path.GetExtension(file.FileName).ToLower() ==".jpg")
+                    if (Path.GetExtension(file.FileName).ToLower() == ".jpg")
                     {
                         var psi = new ProcessStartInfo();
                         psi.FileName = @"C:\Users\Anish\AppData\Local\Programs\Python\Python37-32\python.exe";
-                        
+
                         var script = @"C:\Users\Anish\Documents\git-hub\HamroDokan\HamroDokan\Content\ImageClassificationWithRandomForest\main.py";
                         var image = file.FileName;
                         psi.Arguments = $"\"{script}\" \"{image}\"";
-
                         psi.UseShellExecute = false;
                         psi.CreateNoWindow = true;
                         psi.RedirectStandardOutput = true;
@@ -48,22 +51,36 @@ namespace HamroDokan.Controllers
 
 
                         var errors = "";
-                        var results = "";
 
                         using (var process = Process.Start(psi))
                         {
                             errors = process.StandardError.ReadToEnd();
-                            results = process.StandardOutput.ReadToEnd();
+                            result = process.StandardOutput.ReadToEnd();
                         }
-                         xyz=results;
-                        //xyz = errors;
 
+                     
                     }
+                    
 
                 }
+
             }
-            ViewBag.MyString = xyz;
-            return View();
+            string itm = "";
+            //ViewBag.MyString = result;
+            if (result.Trim()==("Pant"))
+            { itm = "Pant"; }
+            if (result.Trim() == ("Tshirt"))
+            {
+                itm = "Tshirt";
+            }
+            if (result.Trim() == ("Mobile"))
+            {
+                itm = "Mobile";
+            }
+
+            return View(storeDB.Items.Where(x=>x.Keyword1.Equals(itm)).ToList());
+
         }
+        
     }
 }

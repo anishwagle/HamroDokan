@@ -23,6 +23,7 @@ namespace HamroDokan.Models
         [Required(ErrorMessage = "Price Is Required")]
         public decimal Price { get; set; }
         [DisplayName("ImagePath")]
+        
         public string ItemArtUrl { get; set; }
         public string Keyword2 { get; set; }
         public string Keyword3 { get; set; }

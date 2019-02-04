@@ -1,0 +1,70 @@
+﻿@model IEnumerable<HamroDokan.Models.Item>
+
+@{
+    ViewBag.Title = "Text";
+}
+
+<p>@ViewBag.MyString</p>
+
+<table class="image table table-striped">
+    <thead>
+        <tr>
+            <th>Item</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    No Match Any Document
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+
+
+
+
+                    <td>
+
+                        <h2>@item.Title</h2>
+                        <div class="image">
+                            <img src="@item.ItemArtUrl" />
+                        </div>
+
+
+                        <div id="item-details">
+                            <p>
+                                <em>Category:</em>
+                                @item.Category.Name
+                            </p>
+                            <p>
+                                <em>Producer:</em>
+                                @item.Producer.Name
+                            </p>
+                            <p>
+                                <em>Price:</em>
+                                @String.Format("{0:F}",
+                     item.Price)
+                            </p>
+                            <p class="button1">
+                                @Html.ActionLink("Add to cart", "AddToCart",
+                             "ShoppingCart", new { id = item.ItemId }, "")
+                            </p>
+                            <div class="fb-comments" data-width="230" data-numposts="5"></div>
+                        </div>
+
+                    </td>
+
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
