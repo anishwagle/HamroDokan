@@ -21,7 +21,14 @@ namespace HamroDokan.Controllers
         public AccountController()
         {
         }
+        private void MigrateShoppingCart(string Email)
+        {
 
+            var cart = ShoppingCart.GetCart(this.HttpContext);
+
+            cart.MigrateCart(Email);
+            Session[ShoppingCart.CartSessionKey] = Email;
+        }
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
         {
             UserManager = userManager;
@@ -79,6 +86,7 @@ namespace HamroDokan.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
+                    MigrateShoppingCart(model.Email);
                     return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
@@ -156,7 +164,7 @@ namespace HamroDokan.Controllers
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    MigrateShoppingCart(model.Email);
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
