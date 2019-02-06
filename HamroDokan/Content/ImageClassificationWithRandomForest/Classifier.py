@@ -129,7 +129,7 @@ def print_leaf(counts):
     for lbl in counts.keys():
         probs[lbl] = str(int(counts[lbl] / total * 100)) + "%"
     return probs
-def random_tree(data):
+def random_tree():
 #if __name__ == "__main__":
     Random_Tree=[]
     #uncomment if you are training the random tree
@@ -143,7 +143,7 @@ def random_tree(data):
         pickle.dump(Random_Tree,output,pickle.HIGHEST_PROTOCOL)
         '''
     #returning trained random tree
-    with open ("Random_Tree.pkl",'rb')as input:
+    with open ("C:/Users/Anish/Documents/git-hub/HamroDokan/HamroDokan/Content/ImageClassificationWithRandomForest/Random_Tree.pkl",'rb')as input:
         unpickler=pickle.Unpickler(input)
         Random_Tree=unpickler.load()
     testing_data=[]
@@ -151,7 +151,7 @@ def random_tree(data):
     #this take input from testing1.csv 
     #i used this for testing data
     
-    with open('unknown.csv', 'r') as f:
+    with open('C:/Users/Anish/Documents/git-hub/HamroDokan/HamroDokan/Content/ImageClassificationWithRandomForest/unknown.csv', 'r') as f:
         reader = csv.reader(f)
         for row in reader:
             testing_data.append(row)
@@ -167,6 +167,7 @@ def random_tree(data):
             mobile=0
             pant=0
             tshirt=0
+            vari=""
             my_tree=Random_Tree[i]
             Predection = str(classify(row, my_tree).keys())
             if Predection == iteam[0]:
@@ -177,11 +178,13 @@ def random_tree(data):
                 tshirt +=1
         if mobile>pant and mobile >  tshirt:
             print ("Mobile")
-            return
+            vari ="Mobile"
+            return vari
         elif pant>tshirt:
             print("Pant")
-            return
+            vari = "Pant"
+            return vari
         else:
-            print("TShirt")
-            return
-    
+            print("Tshirt")
+            vari = "Tshirt"
+            return vari

@@ -185,7 +185,7 @@ class Image_Crop:
         return gray
     
     def down_size(self):
-        self.image = self.image.resize((1000,1000),Image.ANTIALIAS)
+        self.image = self.image.resize((450,450),Image.ANTIALIAS)
         self.width,self.height=self.image.size
         return
     def get_avrage(self,iteam_list):

@@ -1,4 +1,10 @@
 ﻿@model IEnumerable<HamroDokan.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
 @using (Html.BeginForm("Image", "search", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" name="file" value="browse" />
@@ -12,5 +18,42 @@
 
 }
 
+<table class="table">
 
 
+    @foreach (var item in Model)
+    {
+    <tr>
+       
+        <td>
+            <h2>@item.Title</h2>
+            <div>
+                <img src="@Html.DisplayFor(modelItem => item.ItemArtUrl)" class="responsive" />
+            </div>
+
+
+            <div id="item-details">
+                <p>
+                    <em>Category:</em>
+                    @item.Category.Name
+                </p>
+                <p>
+                    <em>Producer:</em>
+                    @item.Producer.Name
+                </p>
+                <p>
+                    <em>Price:</em>
+                    @String.Format("{0:F}",
+         item.Price)
+                </p>
+                <p class="button1">
+                    @Html.ActionLink("Add to cart", "AddToCart",
+                 "ShoppingCart", new { id = item.ItemId }, "")
+                </p>
+            </div>
+        </td>
+
+    </tr>
+    }
+
+</table>

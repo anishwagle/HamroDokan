@@ -19,7 +19,7 @@ namespace HamroDokan.Controllers
         // GET: Search
         public ActionResult Index()
         {
-            return View();
+            return View(storeDB.Items.ToList());
         }
         [HttpPost]
         public ActionResult Text(string searching)
